@@ -4,3 +4,4 @@ dist
 bin
 *.iml
 lib
+workflow/phil.js
