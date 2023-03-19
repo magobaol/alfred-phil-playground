@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack && cp info.plist icon.png dist/",
+    "build": "webpack --config webpack.dev.js",
+    "release": "webpack && cp info.plist icon.png dist/",
     "clean": "rm -rf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
