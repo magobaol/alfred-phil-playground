@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.dev.js",
-    "release": "webpack && cp info.plist icon.png dist/",
-    "clean": "rm -rf dist",
+    "release": "npm run clean-release && webpack --config webpack.prod.js && cp workflow/info.plist workflow/icon.png dist/ && zip dist/alfred-phil.alfredWorkflow dist/*",
+    "clean-release": "rm -rf dist",
+    "clean-build": "rm -rf workflow/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
