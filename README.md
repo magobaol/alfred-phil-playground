@@ -23,6 +23,3 @@ brew install node
 
 # Credits
 <a href="https://www.flaticon.com/free-icons/camel" title="camel icons">Camel icons created by Freepik - Flaticon</a>
-
-Try with major in the original commit message
-Try again with major in PR
