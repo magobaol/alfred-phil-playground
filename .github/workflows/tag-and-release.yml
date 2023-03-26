@@ -53,6 +53,7 @@ jobs:
         with:
           token: ${{ secrets.PAT_alfred_phil }}
           fetch-depth: 0
+          ref: main
 
       - name: Bump version and push tag
         id: tag_version
