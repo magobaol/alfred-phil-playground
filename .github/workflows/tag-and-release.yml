@@ -30,7 +30,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           custom_release_rules: |
             "fix:patch:Bug Fixes,hotfix:patch:Bug Fixes,feature:minor:Features,change:minor:Changes,breaking:major:Breaking Changes,major:major:Major Changes"          
-          
+          dry_run: true
+          tag_prefix:
+
       - name: Install xmlstarlet
         run: sudo apt-get install -y xmlstarlet
 
