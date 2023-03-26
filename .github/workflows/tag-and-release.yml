@@ -55,7 +55,6 @@ jobs:
       - name: Checkout code again
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.PAT_alfred_phil }}
           fetch-depth: 0
           ref: main
 
