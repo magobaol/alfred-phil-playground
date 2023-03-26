@@ -45,7 +45,7 @@ jobs:
       - name: Commit changes to Alfred workflow version
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Bump version to ${{ steps.tag_version_dry.outputs.new_tag }}"
+          commit_message: "Bump Alfred Workflow version to ${{ steps.tag_version_dry.outputs.new_tag }}"
           branch: main
           push_options: '--force'
 
