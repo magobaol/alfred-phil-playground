@@ -3,11 +3,12 @@ permissions:
   contents: write
 on:
   pull_request:
-    types: [closed, merged]
+    types: [closed]
     branches:
       - main
 jobs:
   bump-alfred-workflow-version:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -59,6 +60,7 @@ jobs:
           git push --force
 
   tag-and-release:
+    if: github.event.pull_request.merged == true
     needs: bump-alfred-workflow-version
     runs-on: macos-latest
     steps:
