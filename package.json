@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.dev.js",
-    "release": "npm run clean-release && webpack --config webpack.prod.js && cp alfred-workflow/info.plist alfred-workflow/icon.png dist/ && cd dist && zip -r alfred-phil.alfredworkflow *",
+    "release": "./scripts/release.sh",
     "clean-release": "rm -rf dist",
     "clean-build": "rm -rf alfred-workflow/bin/*",
     "test": "echo \"Error: no test specified\" && exit 1",
