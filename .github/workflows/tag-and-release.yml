@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_alfred_phil }}
 
 #      - name: Bump version and push tag
 #        id: tag_version
@@ -38,11 +40,9 @@ jobs:
           xmlstarlet ed -P --inplace -u "/plist/dict/key[text()='version']/following-sibling::string[1]" -v "${NEW_VERSION}" "${INFO_PLIST_PATH}"
 
       - name: Commit changes to Alfred workflow version
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -am "Bump version to ${{ steps.tag_version_dry.outputs.new_tag }}"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Bump version to ${{ steps.tag_version_dry.outputs.new_tag }}"
 
       - name: Checkout code again
         uses: actions/checkout@v3
