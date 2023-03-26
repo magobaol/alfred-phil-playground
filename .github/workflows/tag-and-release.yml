@@ -2,8 +2,7 @@ name: Tag and release
 permissions:
   contents: write
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - main
 jobs:
