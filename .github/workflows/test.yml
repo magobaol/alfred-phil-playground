@@ -1,0 +1,28 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - test-gh-actions
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install libplist-utils
+        run: sudo apt-get install -y libplist-utils
+
+      - name: Modify Alfred Workflow version
+        run: |
+          # Specify the path to your info.plist file
+          INFO_PLIST_PATH="alfred-workflow/info.plist"
+          
+          # Set the new version number
+          NEW_VERSION="2.0"
+          
+          # Use plistutil to modify the CFBundleVersion and CFBundleShortVersionString keys
+          plistutil -i "${INFO_PLIST_PATH}" -o - \
+            | sed "s/<key>CFBundleVersion<\/key>/<key>CFBundleVersion<\/key><string>${NEW_VERSION}<\/string>/" \
+            | sed "s/<key>CFBundleShortVersionString<\/key>/<key>CFBundleShortVersionString<\/key><string>${NEW_VERSION}<\/string>/" \
+            | plistutil -i - -o "${INFO_PLIST_PATH}"
