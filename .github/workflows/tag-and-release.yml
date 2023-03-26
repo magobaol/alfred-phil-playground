@@ -13,7 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
           token: ${{ secrets.PAT_alfred_phil }}
 
 #      - name: Bump version and push tag
@@ -51,8 +50,6 @@ jobs:
 
       - name: Checkout code again
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
 
       - name: Bump version and push tag
         id: tag_version
