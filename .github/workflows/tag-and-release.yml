@@ -48,8 +48,10 @@ jobs:
           branch: main
           push_options: '--force'
 
-#      - name: Checkout code again
-#        uses: actions/checkout@v3
+      - name: Checkout code again
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_alfred_phil }}
 
       - name: Bump version and push tag
         id: tag_version
