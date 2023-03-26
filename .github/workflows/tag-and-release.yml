@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  update-alfred-workflow-version:
+  bump-alfred-workflow-version:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -49,6 +49,7 @@ jobs:
           push_options: '--force'
 
   tag-and-release:
+    needs: bump-alfred-workflow-version
     runs-on: macos-latest
     steps:
       - name: Checkout code again
