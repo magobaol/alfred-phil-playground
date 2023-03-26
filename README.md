@@ -1,4 +1,4 @@
-# Phil - Philter any text
+# Phil - Filter any text
 
 An [Alfred workflow](https://www.alfredapp.com/workflows/) to apply filters to text.
 
