@@ -57,7 +57,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.ref }}
-      - run: git fetch --prune --unshallow
+      - run: git fetch --prune
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
