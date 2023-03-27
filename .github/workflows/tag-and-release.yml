@@ -15,7 +15,10 @@ jobs:
           token: ${{ secrets.PAT_alfred_phil }}
           fetch-depth: 0
           ref: main
-
+          
+      - name: Set the git username and email automatically
+        uses: fregante/setup-git-user@v2
+        
 #      - name: Bump version and push tag
 #        id: tag_version
 #        uses: anothrNick/github-tag-action@1.61.0 # Don't use @master unless you're happy to test the latest version
