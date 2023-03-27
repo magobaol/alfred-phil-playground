@@ -41,7 +41,11 @@ jobs:
           INFO_PLIST_PATH="./alfred-workflow/info.plist"
           NEW_VERSION="${{ steps.tag_version_dry.outputs.new_tag }}"
           xmlstarlet ed -P --inplace -u "/plist/dict/key[text()='version']/following-sibling::string[1]" -v "${NEW_VERSION}" "${INFO_PLIST_PATH}"
-
+          git add .
+          git commit -m "Bump Alfred Workflow version to ${{ steps.tag_version_dry.outputs.new_tag }}"
+          git tag v${{ steps.tag_version_dry.outputs.new_tag }}
+          git push --force --tags
+          
 #      - name: Commit changes to Alfred workflow version
 #        uses: stefanzweifel/git-auto-commit-action@v4
 #        with:
@@ -49,14 +53,14 @@ jobs:
 #          branch: main
 #          push_options: '--force'
 
-      - name: Commit changes to Alfred workflow version
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "Bump Alfred Workflow version to ${{ steps.tag_version_dry.outputs.new_tag }}"
-          git tag v${{ steps.tag_version_dry.outputs.new_tag }}
-          git push --force --tags
+#      - name: Commit changes to Alfred workflow version
+#        run: |
+#          git config user.name github-actions
+#          git config user.email github-actions@github.com
+#          git add .
+#          git commit -m "Bump Alfred Workflow version to ${{ steps.tag_version_dry.outputs.new_tag }}"
+#          git tag v${{ steps.tag_version_dry.outputs.new_tag }}
+#          git push --force --tags
 
 #      - name: Checkout code again
 #        uses: actions/checkout@v3
