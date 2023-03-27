@@ -46,6 +46,7 @@ jobs:
           xmlstarlet ed -P --inplace -u "/plist/dict/key[text()='version']/following-sibling::string[1]" -v "${NEW_VERSION}" "${INFO_PLIST_PATH}"
           git add .
           git commit -m "Bump Alfred Workflow version to ${{ steps.tag_version_dry.outputs.new_tag }}"
+          git push --force
           git tag v${{ steps.tag_version_dry.outputs.new_tag }}
           git push --force --tags
           
