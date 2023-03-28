@@ -96,3 +96,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: ./dist/alfred-phil.alfredworkflow
           body: ${{ steps.release-notes.outputs.changelog }}
+          draft: true
