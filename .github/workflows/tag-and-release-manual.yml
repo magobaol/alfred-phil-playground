@@ -83,12 +83,6 @@ jobs:
       - name: Build the release
         run: npm run release
 
-      - name: Generate release notes
-        id: release-notes
-        uses: release-drafter/release-drafter@v5.21.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
       - name: GH Release
         uses: softprops/action-gh-release@v0.1.15
         with:
@@ -97,3 +91,9 @@ jobs:
           files: ./dist/alfred-phil.alfredworkflow
           body: ${{ steps.release-notes.outputs.changelog }}
           draft: true
+
+      - name: Generate release notes
+        id: release-notes
+        uses: release-drafter/release-drafter@v5.21.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
