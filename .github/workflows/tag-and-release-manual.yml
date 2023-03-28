@@ -86,8 +86,8 @@ jobs:
       - name: Generate release notes
         id: release-notes
         uses: release-drafter/release-drafter@v5.21.1
-        with:
-          config-path: .github/release-drafter.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: GH Release
         uses: softprops/action-gh-release@v0.1.15
