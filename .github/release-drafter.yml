@@ -2,4 +2,4 @@ template: |
   ## What’s Changed
 
   $CHANGES
-draft: true
+draft: false
