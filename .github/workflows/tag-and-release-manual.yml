@@ -85,7 +85,7 @@ jobs:
 
       - name: Generate release notes
         id: release-notes
-        uses: release-drafter/release-drafter@v7.1.1
+        uses: actions/release-drafter@v7.1.1
         with:
           config-path: .github/release-drafter.yml
           
